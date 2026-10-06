@@ -54,6 +54,7 @@
     <nav>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#case-study">Case study</a>
       <a href="#skills">Skills</a>
       <a href="#certs">Certifications</a>
       <a href="https://github.com/tyson1403" target="_blank" rel="noopener">GitHub</a>
@@ -116,7 +117,7 @@
           <ul>
             <li>Built the company's first UI (Cypress) and API (ReadyAPI) automation framework from scratch, moving the team from manual testing to automation.</li>
             <li>Architected a reusable Playwright/TypeScript framework for UI and API testing, with shared fixtures, test-data utilities, environment config and CI/CD execution. It is now the standard for new projects, including Production Planning and Order Management.</li>
-            <li>Led the migration of existing Cypress suites (about 200–300 tests per project) to Playwright, using AI-assisted conversion with human review.</li>
+            <li>Led the migration of existing Cypress suites (about 200–300 tests per project) to Playwright, using an AI migration agent with human review, including one project of 600+ tests migrated in a single overnight session.</li>
             <li>Grew automated coverage from 30% to 90% across five product areas (User, Customer, Order, Production and Delivery) with 500+ UI tests, and cut regression time from 90 to 55 minutes.</li>
             <li>Owned OAuth2 and JWT authentication testing for the Core platform library, with request/response and JSON Schema validation.</li>
             <li>Verified data end to end across UI, API and database layers using SQL.</li>
@@ -218,6 +219,56 @@
           <span class="co mono">Credence Systems</span>
         </article>
       </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="section" id="case-study">
+      <h2 class="title reveal">Case study: moving 600+ Cypress tests to Playwright</h2>
+      <p class="sub reveal">How I used a supervised AI migration agent to move a large monorepo test suite off Cypress.</p>
+      <p class="glance mono reveal">600+ tests in the largest project · 3 spec files per batch · one overnight session</p>
+
+      <article class="job reveal">
+        <div class="when mono">The problem</div>
+        <div>
+          <p class="body">Our Cypress suites had grown to 200–300 tests per project, and the largest passed 600. Cypress has no native parallelisation, so we used the cypress-split plugin to spread specs across CI runners.</p>
+          <ul>
+            <li>Growing suites meant adding more runners to the pipeline.</li>
+            <li>If one runner got stuck, the whole pipeline stalled with it.</li>
+            <li>Runs kept runners busy for 30–40 minutes, which delayed development deployments because we work in a monorepo.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job reveal">
+        <div class="when mono">The approach</div>
+        <div>
+          <p class="body">Playwright runs tests in parallel across workers natively, so it removed the need for a split plugin. Rather than rewrite hundreds of tests by hand, we built an AI agent to perform the migration, with a human reviewing every step.</p>
+          <ul>
+            <li>The agent worked on three spec files at a time, together with the helper methods they depend on.</li>
+            <li>Small batches kept every change reviewable and limited the risk of hallucinated or subtly wrong tests.</li>
+            <li>I reviewed each batch and fixed problems directly before moving on.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job reveal">
+        <div class="when mono">What went wrong</div>
+        <div>
+          <p class="body">My first attempt was to ask the agent to migrate the entire project in one go: more than 600 tests plus all their supporting methods. The agent kept getting stuck and consumed a large number of tokens.</p>
+          <p class="body">I switched to a few files and their related methods at a time. It needed more hands-on supervision, but it was the more effective and efficient route.</p>
+        </div>
+      </article>
+
+      <article class="job reveal">
+        <div class="when mono">The outcome</div>
+        <div>
+          <ul>
+            <li>The 600+ test project was migrated in a single overnight session of roughly 6–8 hours of supervised work.</li>
+            <li>The Playwright framework is now the standard for new projects, including Production Planning and Order Management.</li>
+          </ul>
+          <p class="body takeaway"><b>Lesson:</b> keep AI work in small, verifiable units and keep a human in the review loop.</p>
+        </div>
+      </article>
     </section>
 
     <!-- SKILLS -->

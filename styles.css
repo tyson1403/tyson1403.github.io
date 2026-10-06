@@ -77,6 +77,13 @@ h1{font-family:var(--serif);font-weight:500;font-size:clamp(3rem,8vw,6.2rem);lin
 .projline b{color:var(--text);font-weight:500}
 .stack{margin-top:12px;font-size:.76rem;color:var(--muted)}
 
+/* CASE STUDY */
+.glance{font-size:.8rem;color:var(--accent);margin:-14px 0 34px}
+.job p.body{color:#c9c8c1;font-size:.98rem;margin-bottom:12px}
+.job p.body+ul{margin-top:4px}
+.takeaway{margin-top:16px;padding-left:16px;border-left:2px solid var(--accent)}
+.takeaway b{color:var(--text);font-weight:500}
+
 /* PROJECTS */
 .rows{border-bottom:1px solid var(--line)}
 .row{display:grid;grid-template-columns:1fr 1.6fr 150px;gap:28px;align-items:baseline;padding:24px 0;border-top:1px solid var(--line);transition:background .25s,padding .35s var(--ease)}
