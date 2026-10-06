@@ -117,7 +117,7 @@
           <ul>
             <li>Built the company's first UI (Cypress) and API (ReadyAPI) automation framework from scratch, moving the team from manual testing to automation.</li>
             <li>Architected a reusable Playwright/TypeScript framework for UI and API testing, with shared fixtures, test-data utilities, environment config and CI/CD execution. It is now the standard for new projects, including Production Planning and Order Management.</li>
-            <li>Led the migration of existing Cypress suites (about 200–300 tests per project) to Playwright, using an AI migration agent with human review, including one project of 600+ tests migrated in a single overnight session.</li>
+            <li>Led the migration of existing Cypress suites (about 200–300 tests per project) to Playwright, using an AI migration agent with human review, including one project of 600+ tests migrated in a single supervised session.</li>
             <li>Grew automated coverage from 30% to 90% across five product areas (User, Customer, Order, Production and Delivery) with 500+ UI tests, and cut regression time from 90 to 55 minutes.</li>
             <li>Owned OAuth2 and JWT authentication testing for the Core platform library, with request/response and JSON Schema validation.</li>
             <li>Verified data end to end across UI, API and database layers using SQL.</li>
@@ -178,6 +178,11 @@
       <h2 class="title reveal">Projects</h2>
       <p class="sub reveal">Mostly enterprise software at LiSEC, plus a few web platforms from my earlier jobs.</p>
       <div class="rows">
+        <a class="row reveal" href="https://github.com/tyson1403/playwright-automation-platform" target="_blank" rel="noopener">
+          <h3>Playwright Automation Platform ↗</h3>
+          <p>Personal project: a reusable Playwright package in TypeScript. Playwright is versioned in one place, with a shared config factory that consuming projects import instead of copying setup. Distributed through versioned git tags, with CI on GitHub Actions. Reusable fixtures and a second consumer project are in progress.</p>
+          <span class="co mono">Personal · GitHub</span>
+        </a>
         <a class="row reveal" href="https://github.com/tyson1403/playwright-k6-docker-ci-boilerplate" target="_blank" rel="noopener">
           <h3>Playwright + k6 + Docker CI boilerplate ↗</h3>
           <p>Personal project: an SDET starter kit that combines Playwright (TypeScript), k6 performance testing and Dockerised CI/CD pipelines into a single quality gate. In active development.</p>
@@ -225,7 +230,7 @@
     <section class="section" id="case-study">
       <h2 class="title reveal">Case study: moving 600+ Cypress tests to Playwright</h2>
       <p class="sub reveal">How I used a supervised AI migration agent to move a large monorepo test suite off Cypress.</p>
-      <p class="glance mono reveal">600+ tests in the largest project · 3 spec files per batch · one overnight session</p>
+      <p class="glance mono reveal">600+ tests in the largest project · 3 spec files per batch · one 6–8 hour supervised session</p>
 
       <article class="job reveal">
         <div class="when mono">The problem</div>
@@ -242,11 +247,12 @@
       <article class="job reveal">
         <div class="when mono">The approach</div>
         <div>
-          <p class="body">Playwright runs tests in parallel across workers natively, so it removed the need for a split plugin. Rather than rewrite hundreds of tests by hand, we built an AI agent to perform the migration, with a human reviewing every step.</p>
+          <p class="body">Playwright handles parallel runs natively, so we could retire Cypress entirely and drop the split plugin. Rather than rewrite hundreds of tests by hand, we built an AI agent to perform the migration, with a human reviewing every step.</p>
           <ul>
             <li>The agent worked on three spec files at a time, together with the helper methods they depend on.</li>
             <li>Small batches kept every change reviewable and limited the risk of hallucinated or subtly wrong tests.</li>
-            <li>I reviewed each batch and fixed problems directly before moving on.</li>
+            <li>Failing migrated tests were repaired with Playwright MCP and its self-healing loop.</li>
+            <li>I reviewed each batch and fixed remaining problems directly before moving on.</li>
           </ul>
         </div>
       </article>
@@ -263,7 +269,10 @@
         <div class="when mono">The outcome</div>
         <div>
           <ul>
-            <li>The 600+ test project was migrated in a single overnight session of roughly 6–8 hours of supervised work.</li>
+            <li>The 600+ test project was migrated in a single supervised session of roughly 6–8 hours.</li>
+            <li>Cypress was retired completely, and the split plugin is no longer needed.</li>
+            <li>Load on the CI runners and the pipeline dropped. I set the Playwright worker count equal to the previous number of runners to limit flakiness, so run times stayed about the same.</li>
+            <li>Using Playwright MCP and its self-healing loop to fix failing tests improved reliability, which I estimate raised overall test quality by around 30%.</li>
             <li>The Playwright framework is now the standard for new projects, including Production Planning and Order Management.</li>
           </ul>
           <p class="body takeaway"><b>Lesson:</b> keep AI work in small, verifiable units and keep a human in the review loop.</p>
@@ -280,7 +289,7 @@
         <div class="reveal"><dt>Data validation</dt><dd>SQL, database validation, test-data verification</dd></div>
         <div class="reveal"><dt>Languages</dt><dd>TypeScript, JavaScript, Python</dd></div>
         <div class="reveal"><dt>CI/CD and DevOps</dt><dd>Git, GitHub, GitHub Actions, Jenkins, Docker</dd></div>
-        <div class="reveal"><dt>AI in testing</dt><dd>GitHub Copilot, custom QA agents, reusable AI skills, AI-assisted test migration</dd></div>
+        <div class="reveal"><dt>AI in testing</dt><dd>GitHub Copilot, Playwright MCP, custom QA agents, reusable AI skills, AI-assisted test migration</dd></div>
         <div class="reveal"><dt>Test management</dt><dd>Jira, Xray</dd></div>
         <div class="reveal"><dt>Ways of working</dt><dd>Agile/Scrum, shift-left testing, data-driven testing, regression, UAT</dd></div>
         <div class="reveal"><dt>Leadership</dt><dd>Test strategy, mentoring, quality metrics, working across teams</dd></div>
