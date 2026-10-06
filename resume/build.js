@@ -25,7 +25,7 @@ const R = {
   ],
   credLine: 'ISTQB CT-AI | ISTQB Agile Tester | ISTQB CTFL | AT*SQA Test Automation | M. Eng. Management, RMIT University',
   summary: [
-    'Senior QA Automation Engineer and SDET with 7+ years of experience building UI and API automation for enterprise applications. At LiSEC Automation, built the Cypress and ReadyAPI frameworks from scratch, architected the Playwright/TypeScript framework now standard for new projects, led the Cypress-to-Playwright migration and grew automated regression coverage from 30% to 90%.',
+    'Senior QA Automation Engineer and SDET with 7+ years of experience building UI and API automation for enterprise applications. At LiSEC Automation, built the Cypress and ReadyAPI frameworks from scratch, architected the Playwright/TypeScript framework now standard for new projects, led the Cypress-to-Playwright migration and grew automated regression coverage to 90%.',
     'Strong in CI/CD integration, OAuth2/JWT testing, SQL data validation and flaky-test reduction. Applies AI-assisted testing in daily work, including custom QA agents, Playwright MCP and GitHub Copilot adoption that cut test-case drafting time by about 55%.',
   ],
   skills: [
@@ -58,7 +58,7 @@ const R = {
           'Led the controlled migration of a 600+ test Cypress project to Playwright using an AI-assisted migration agent and Playwright MCP, working in validated batches with human review and existing quality gates, then retired Cypress and the split plugin.',
         ]],
         ['Test coverage and reliability', [
-          'Grew automated regression coverage from 30% to 90% across five product areas (User, Customer, Order, Production, Delivery) with the first 500+ UI tests, placing each test at the right layer to avoid redundant coverage.',
+          'Grew automated regression coverage to 90% across five product areas (User, Customer, Order, Production, Delivery) with the first 500+ UI tests, placing each test at the right layer to avoid redundant coverage.',
           'Cut Cypress regression time from 90 to 55 minutes through parallel runs with cypress-split and reusable utilities.',
           'Fixed flaky UI and API tests by moving to dynamic Python-generated test data, giving stable CI/CD runs with fewer retries, and wrote Python scripts for log parsing and environment setup that removed 4+ hours of manual configuration per sprint.',
           'Owned OAuth2 and JWT authentication testing for the Core platform library with request/response and JSON Schema validation, and verified data end to end across UI, API and database layers using SQL.',
